@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Setup(UnitData unitData)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Setup(unitData);
+        GameManager.RegisterEnemy(this);
     }
 }

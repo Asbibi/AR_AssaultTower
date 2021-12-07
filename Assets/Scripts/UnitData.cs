@@ -4,20 +4,16 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit_Data_")]
 public class UnitData : ScriptableObject
-{
-    public enum RangeAngle
-    {
-        forward,
-        d45,
-        d90,
-        d180
-    };
-
+{ 
+    [Header("Identity")]
+    public string unitName;
+    public Mesh mesh;
+    public AnimationCategory category;
+    [Header("Stats")]
     public int maxLife = 25;
     public int attack = 10;
     public int defense = 10;
-    public int range = 10;
-    public RangeAngle angle = RangeAngle.forward;
-    public bool hitAllies = false;
-    public Mesh mesh;
+    public Proximity range = Proximity.Close;
+    public RangeAngle angle = RangeAngle.forward;   // not used yet
+    public bool hitAllies = false;                  // not used yet
 }
