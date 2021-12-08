@@ -28,19 +28,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int enemyCountToGetAVirtualHero = 5;
     [SerializeField] private LayerMask virtualLayer;
 
-    [Header("State (Debug)")]
-    [SerializeField] private GameState gameState = GameState.Setup;
+    //[Header("State (Debug)")]
+    private GameState gameState = GameState.Setup;
     private bool fighting = false;
     private int maxFloor = 0;   // <=0 -> infinity
     private int currentFloor = 0;
-    private int virtualHumanInReserve = 1;
+    private int virtualHumanInReserve = 0;
     private int enemyCount = 0;
 
-    [SerializeField] private List<Hero> heroes;
-    [SerializeField] private List<Hero> tempHeroes;
-    [SerializeField] private List<Enemy> enemies;
-    [SerializeField] private List<Door> doors;
-    [SerializeField] private List<Door> tempDoors;   // temporary list for when the user wnats to add a door marker while fighting
+    private List<Hero> heroes;
+    private List<Hero> tempHeroes;  // temporary list for when the user wnats to add a hero marker outside of preparation phase (fight or setup)
+    private List<Enemy> enemies;
+    private List<Door> doors;
+    private List<Door> tempDoors;   // temporary list for when the user wnats to add a door marker while fighting
 
 
     void Awake()
