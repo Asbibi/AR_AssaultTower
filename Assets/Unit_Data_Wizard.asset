@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 380f8b1123daab249a6557b191aa8ed4, type: 3}
-  m_Name: Unit_Data_Test Enemy
+  m_Name: Unit_Data_Wizard
   m_EditorClassIdentifier: 
-  unitName: Enemy
-  mesh: {fileID: -7877396028586700447, guid: 85688452cf956554bbba8e043e1be5ef, type: 3}
-  category: 0
-  maxLife: 25
+  unitName: Wizy
+  mesh: {fileID: 6449654466282237968, guid: c3ab6e7ef0ffd6644b4474c3baabc9f2, type: 3}
+  category: 1
+  maxLife: 35
   attack: 10
   defense: 10
   range: 2

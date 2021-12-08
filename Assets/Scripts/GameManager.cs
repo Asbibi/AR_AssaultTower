@@ -18,21 +18,24 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private UIManager UI;
 
-    [Header("Parameters")]
+    [Header("Enemies")]
     [SerializeField] private EnemyPack[] possibleEnemies;
     [SerializeField] private GameObject enemyPrefab;
+
+    [Header("Virtual Heroes")]
     [SerializeField] private UnitData[] virtualUnitDatas;
     [SerializeField] private GameObject heroVirtualPrefab;
     [SerializeField] private int enemyCountToGetAVirtualHero = 5;
+    [SerializeField] private LayerMask virtualLayer;
 
+    [Header("State (Debug)")]
     [SerializeField] private GameState gameState = GameState.Setup;
     private bool fighting = false;
     private int maxFloor = 0;   // <=0 -> infinity
     private int currentFloor = 0;
-    private int virtualHumanInReserve = 0;
+    private int virtualHumanInReserve = 1;
     private int enemyCount = 0;
 
-    [Header("State (Debug)")]
     [SerializeField] private List<Hero> heroes;
     [SerializeField] private List<Hero> tempHeroes;
     [SerializeField] private List<Enemy> enemies;
@@ -272,9 +275,22 @@ public class GameManager : MonoBehaviour
         else if (heroes.Count == 0)
             return 2;
 
-        foreach (var door in doors)
+        List<int> possiblePacks = new List<int>();
+        for(int i = 0; i < possibleEnemies.Length; i++)
         {
-            possibleEnemies[Random.Range(0, possibleEnemies.Length)].SpawnEnemies(door.transform.position);
+            if (!possibleEnemies[i].OkForThisFloor(currentFloor))
+                continue;
+
+            for (int j = 0; j < possibleEnemies[i].probabilityWeight; j++)
+                possiblePacks.Add(i);
+        }
+
+        if (possiblePacks.Count > 0)
+        {
+            foreach (var door in doors)
+            {
+                possibleEnemies[possiblePacks[Random.Range(0, possiblePacks.Count)]].SpawnEnemies(door.transform.position);
+            }
         }
 
         gameState = GameState.Fight;
@@ -289,43 +305,84 @@ public class GameManager : MonoBehaviour
     {
         fighting = true;
         _TryEndFightPhase();
-        foreach(var hero in heroes)
+        foreach (var hero in heroes)
         {
-            foreach(var enemy in enemies)
+            // Hero still alive now ?
+            if (hero.GetLife() < 0 || enemies.Count == 0)
+                continue;
+
+            // Find closest enemy -> is him in range ?
+            Enemy foundEnemy = enemies[hero.GetClosestUnit(enemies.ToArray())];
+            if (!hero.IsInRange(foundEnemy))
+                continue;
+
+            // Attack this enemy
+            float damage = hero.Attack();
+            Vector3 toTarget = (foundEnemy.transform.position - hero.transform.position).normalized;
+            hero.transform.forward = toTarget;
+            foundEnemy.transform.forward = -toTarget;
+
+            yield return new WaitForSeconds(0.5f);
+
+            bool died = foundEnemy.Hurt(damage);
+                // deal side damage to other heroes/enemies if range angle isn't forward
+            yield return new WaitForSeconds(1.2f);
+
+            if (died)
             {
-                if (hero.IsInRange(enemy))
-                {
-                    float damage = hero.Attack();
-                    Vector3 toTarget = (enemy.transform.position - hero.transform.position).normalized;
-                    hero.transform.forward = toTarget;
-                    enemy.transform.forward = -toTarget;
-
-                    yield return new WaitForSeconds(0.5f);
-
-                    bool died = enemy.Hurt(damage);
-                    // deal side damage to other heroes/enemies if range angle isn't forward
-                    yield return new WaitForSeconds(1.2f);
-
-                    if (died)
-                    {
-                        enemies.Remove(enemy);
-                        Destroy(enemy.gameObject);
-                        enemyCount++;
-                    }
-                    break;
-                }
+                enemies.Remove(foundEnemy);
+                Destroy(foundEnemy.gameObject);
+                enemyCount++;
             }
         }
         foreach (var enemy in enemies)
         {
-            bool found = false;
-            // find an hero in range, turn toward it and attack it
-                // stop the attack if the hero has been moved out of range by a physical intervention of the user
-                // deal side damage to other heroes/enemies if range angle isn't forward
-            // if no one in range, teleport toward closest
+            if (heroes.Count == 0)  // no left hero to fight => player has loose => skip
+                break;
 
-            if (found)
-                yield return new WaitForSeconds(2);
+
+
+            // Find closest hero
+            Hero foundHero = heroes[enemy.GetClosestUnit(heroes.ToArray())];
+            // Is he in range ? if not, teleport to him
+            if (!enemy.IsInRange(foundHero))
+            {                
+                Vector3 direction = (foundHero.transform.position - enemy.transform.position).normalized * 0.1f;
+// Here the 0.1f is a relatively good step considering the Near/Close/far values but might need to be changed
+                while (!enemy.IsInRange(foundHero))
+                {
+                    enemy.transform.position += direction;
+                }
+            }
+
+
+
+            // ---- Attack Hero -----
+            float damage = enemy.Attack();
+            Vector3 toTarget = (foundHero.transform.position - enemy.transform.position).normalized;
+            enemy.transform.forward = toTarget;
+            foundHero.transform.forward = -toTarget;
+
+            yield return new WaitForSeconds(0.8f);
+
+            bool died = false;
+
+            if (enemy.IsInRange(foundHero)) // if the player moved the hero out of range -> no damages
+                died = foundHero.Hurt(damage);
+
+                // deal side damage to other heroes/enemies if range angle isn't forward
+            yield return new WaitForSeconds(0.8f);
+
+            if (died)
+            {
+                heroes.Remove(foundHero);
+                if (virtualLayer == (virtualLayer | (1 << foundHero.gameObject.layer)))
+                {
+                    Debug.Log("Virtual Detected");
+                    Destroy(foundHero.gameObject);
+                }
+            }
+            // ----------------------
         }
         fighting = false;
     }
@@ -353,6 +410,9 @@ public class GameManager : MonoBehaviour
                     enemyCount = 0;
                     virtualHumanInReserve++;
                 }
+                foreach (var hero in heroes)
+                    hero.Celebrate();
+
                 _StartPreparationPhase();
             }
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Knight
   mesh: {fileID: -8319465574948283117, guid: 7321f8a26677bab4bab4d20321b593b5, type: 3}
   category: 3
-  maxLife: 25
+  maxLife: 35
   attack: 15
   defense: 10
   range: 2

@@ -7,7 +7,7 @@ public abstract class Unit : MonoBehaviour
 {
     UnitData data = null;
     [SerializeField] SkinnedMeshRenderer mesh;
-    private Animator animator;
+    protected Animator animator;
 
     float life;
 
@@ -63,9 +63,10 @@ public abstract class Unit : MonoBehaviour
         if (damage < 0)
             damage = 1; // minimum damage is 1
 
-        animator.SetTrigger("Hit");
         life -= damage;
-        return life < 0;
+        bool die = life < 0;
+        animator.SetTrigger(die ? "Death" : "Hit");
+        return die;
     }
     public Proximity GetProximity(Unit other)
     {
@@ -81,5 +82,20 @@ public abstract class Unit : MonoBehaviour
     {
         Proximity proxi = GetProximity(other);
         return (int)proxi >= (int)data.range;
+    }
+
+    public int GetClosestUnit(Unit[] others)
+    {
+        if (others.Length == 0)
+            return -1;
+
+        int closestUnit = 0;
+        for (int i = 1; i < others.Length; i++)
+        {
+            if (Vector3.Distance(others[i].transform.position, transform.position) < Vector3.Distance(others[closestUnit].transform.position, transform.position))
+                closestUnit = i;
+        }
+
+        return closestUnit;
     }
 }

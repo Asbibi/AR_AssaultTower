@@ -32,4 +32,17 @@ public class EnemyPack
             enemy.GetComponent<Enemy>().Setup(enemyDatas[i]);
         }
     }
+
+    public bool OkForThisFloor(int currentFloor)    // Min and Max are inclusive
+    {
+        // Min ok ?
+        if (currentFloor < minFloor)
+            return false;
+
+        // Max ok ? => not inf (<=0) and above = not ok
+        if (maxFloor > 0 && currentFloor > maxFloor)
+            return false;
+
+        return true;
+    }
 }

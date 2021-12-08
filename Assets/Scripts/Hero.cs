@@ -58,7 +58,10 @@ public class Hero : Unit
     public override bool Hurt(float attack)
     {
         bool res = base.Hurt(attack);
-        UI.UpdateUI(this);
+        if (res)
+            UI.gameObject.SetActive(false);
+        else
+            UI.UpdateUI(this);
         return res;
     }
 
@@ -67,5 +70,10 @@ public class Hero : Unit
     {
         UI.gameObject.SetActive(show);
         UI.UpdateUI(this);
+    }
+
+    public void Celebrate()
+    {
+        animator.SetTrigger("Victory");
     }
 }
