@@ -9,4 +9,9 @@ public class Enemy : Unit
         base.Setup(unitData);
         GameManager.RegisterEnemy(this);
     }
+
+    public void Move()
+    {
+        animator.SetTrigger("Move");
+    }
 }

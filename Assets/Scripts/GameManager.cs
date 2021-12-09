@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance = null;
 
-    [Header("UI")]
+    [Header("Interface")]
     [SerializeField] private UIManager UI;
+    [SerializeField] private GameObject proximityLinePrefab;
 
     [Header("Enemies")]
     [SerializeField] private EnemyPack[] possibleEnemies;
@@ -36,11 +37,11 @@ public class GameManager : MonoBehaviour
     private int virtualHumanInReserve = 0;
     private int enemyCount = 0;
 
-    private List<Hero> heroes;
-    private List<Hero> tempHeroes;  // temporary list for when the user wnats to add a hero marker outside of preparation phase (fight or setup)
-    private List<Enemy> enemies;
-    private List<Door> doors;
-    private List<Door> tempDoors;   // temporary list for when the user wnats to add a door marker while fighting
+    private List<Hero> heroes       = new List<Hero>();
+    private List<Hero> tempHeroes   = new List<Hero>();  // temporary list for when the user wants to add a hero marker outside of preparation phase (fight or setup)
+    private List<Enemy> enemies     = new List<Enemy>();
+    private List<Door> doors        = new List<Door>();
+    private List<Door> tempDoors    = new List<Door>();   // temporary list for when the user wants to add a door marker while fighting
 
 
     void Awake()
@@ -96,6 +97,13 @@ public class GameManager : MonoBehaviour
             return null;
         else
             return instance.enemyPrefab;
+    }
+    static public GameObject GetProximityLinePrefab()
+    {
+        if (instance == null)
+            return null;
+        else
+            return instance.proximityLinePrefab;
     }
     static public void IncreaseMaxFloor()
     {
@@ -305,6 +313,10 @@ public class GameManager : MonoBehaviour
     {
         fighting = true;
         _TryEndFightPhase();
+
+
+        // ===========      Heroes attack      ==============
+
         foreach (var hero in heroes)
         {
             // Hero still alive now ?
@@ -335,6 +347,10 @@ public class GameManager : MonoBehaviour
                 enemyCount++;
             }
         }
+
+
+        // ===========      Enemies attack      ==============
+
         foreach (var enemy in enemies)
         {
             if (heroes.Count == 0)  // no left hero to fight => player has loose => skip
@@ -344,23 +360,28 @@ public class GameManager : MonoBehaviour
 
             // Find closest hero
             Hero foundHero = heroes[enemy.GetClosestUnit(heroes.ToArray())];
+
+            // turn toward the hero
+            Vector3 toTarget = (foundHero.transform.position - enemy.transform.position).normalized;
+            enemy.transform.forward = toTarget;
+
             // Is he in range ? if not, teleport to him
             if (!enemy.IsInRange(foundHero))
             {                
-                Vector3 direction = (foundHero.transform.position - enemy.transform.position).normalized * 0.1f;
-// Here the 0.1f is a relatively good step considering the Near/Close/far values but might need to be changed
+                Vector3 direction = toTarget * 0.1f;
+                // Here the 0.1f is a relatively good step considering the Near/Close/far values but might need to be changed
+
+                enemy.Move();
+                yield return new WaitForSeconds(0.5f);
                 while (!enemy.IsInRange(foundHero))
                 {
                     enemy.transform.position += direction;
                 }
+                yield return new WaitForSeconds(0.4f);
             }
-
-
 
             // ---- Attack Hero -----
             float damage = enemy.Attack();
-            Vector3 toTarget = (foundHero.transform.position - enemy.transform.position).normalized;
-            enemy.transform.forward = toTarget;
             foundHero.transform.forward = -toTarget;
 
             yield return new WaitForSeconds(0.8f);
@@ -376,6 +397,7 @@ public class GameManager : MonoBehaviour
             if (died)
             {
                 heroes.Remove(foundHero);
+                ProximityLine.Disconnect(foundHero, heroes);
                 if (virtualLayer == (virtualLayer | (1 << foundHero.gameObject.layer)))
                 {
                     Debug.Log("Virtual Detected");
@@ -384,6 +406,9 @@ public class GameManager : MonoBehaviour
             }
             // ----------------------
         }
+
+
+
         fighting = false;
     }
     private void _TryEndFightPhase()

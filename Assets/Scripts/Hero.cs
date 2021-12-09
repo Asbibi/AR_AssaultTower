@@ -29,7 +29,10 @@ public class Hero : Unit
         {
             if (hero == this)
                 continue;
-            proximityBoostPoint +=  (int)GetProximity(hero);
+
+            Proximity proxi = GetProximity(hero);
+            proximityBoostPoint +=  (int)proxi;
+            ProximityLine.Connect(this, hero, proxi);
         }
         if (proximityBoostPoint > maxBoostPoint)
             proximityBoostPoint = maxBoostPoint;
