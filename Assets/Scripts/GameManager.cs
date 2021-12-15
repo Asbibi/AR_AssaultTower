@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance = null;
 
+    [Header("Vuforia")]
+    [SerializeField]
+
     [Header("Interface")]
     [SerializeField] private UIManager UI;
     [SerializeField] private GameObject proximityLinePrefab;
@@ -22,6 +25,8 @@ public class GameManager : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] private EnemyPack[] possibleEnemies;
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyRangePrefab;
+    GameObject enemyRange;
 
     [Header("Virtual Heroes")]
     [SerializeField] private UnitData[] virtualUnitDatas;
@@ -42,7 +47,7 @@ public class GameManager : MonoBehaviour
     private List<Enemy> enemies     = new List<Enemy>();
     private List<Door> doors        = new List<Door>();
     private List<Door> tempDoors    = new List<Door>();   // temporary list for when the user wants to add a door marker while fighting
-
+    
 
     void Awake()
     {
@@ -55,6 +60,8 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         UI.UpdateUI();
+        enemyRange = Instantiate(enemyRangePrefab, Vector3.zero, Quaternion.identity);
+        enemyRange.SetActive(false);
     }
     void Update()
     {
@@ -274,12 +281,13 @@ public class GameManager : MonoBehaviour
             return;
 
         Vector3 spawnPosition = Vector3.zero;
-        Ray ray = Camera.main.ScreenPointToRay(Vector3.zero);
-        float enter = 0.0f;
-        if ((new Plane(Vector3.up, Vector3.zero)).Raycast(ray, out enter))
-            spawnPosition = ray.GetPoint(enter);        
+        foreach (var hero in heroes)
+            spawnPosition += hero.transform.position;
+        spawnPosition /= heroes.Count;
+
         GameObject heroVirtual = Instantiate(heroVirtualPrefab, spawnPosition, Quaternion.identity);
         heroVirtual.GetComponent<Hero>().Setup(virtualUnitDatas[Random.Range(0, virtualUnitDatas.Length)]);
+        _RegisterHero(heroVirtual.GetComponent<Hero>());
 
         virtualHumanInReserve--;
     }
@@ -397,12 +405,22 @@ public class GameManager : MonoBehaviour
                 {
                     enemy.transform.position += direction;
                 }
-                yield return new WaitForSeconds(0.4f);
+                enemy.transform.position += direction*2;    // little additional margin
+                yield return new WaitForSeconds(0.8f);
             }
 
             // ---- Attack Hero -----
             float damage = enemy.Attack();
             foundHero.transform.forward = -toTarget;
+
+            Proximity range = enemy.GetData().range;
+            if (range != Proximity.Far)
+            {
+                enemyRange.SetActive(true);
+                enemyRange.transform.forward = toTarget;
+                enemyRange.transform.position = enemy.transform.position + toTarget * Unit.getProximityDistance(range);
+            }
+            
 
             yield return new WaitForSeconds(0.8f);
 
@@ -410,8 +428,9 @@ public class GameManager : MonoBehaviour
 
             if (enemy.IsInRange(foundHero)) // if the player moved the hero out of range -> no damages
                 died = foundHero.Hurt(damage);
+            enemyRange.SetActive(false);
 
-                // deal side damage to other heroes/enemies if range angle isn't forward
+            // deal side damage to other heroes/enemies if range angle isn't forward
             yield return new WaitForSeconds(0.8f);
 
             if (died)

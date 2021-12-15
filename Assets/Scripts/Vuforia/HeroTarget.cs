@@ -14,6 +14,6 @@ public class HeroTarget : MonoBehaviour
     }
     public void OnLost()
     {
-        Debug.Log("Lost");
+        GameManager.UnRegisterHero(hero);
     }
 }

@@ -106,4 +106,19 @@ public abstract class Unit : MonoBehaviour
 
         return closestUnit;
     }
+
+
+
+    static public float getProximityDistance(Proximity proxi)
+    {
+        switch(proxi)
+        {
+            case Proximity.Close:
+                return proximityCloseLimit;
+            case Proximity.Near:
+                return proximityNearLimit;
+            default:
+                return -1;
+        }
+    }
 }
