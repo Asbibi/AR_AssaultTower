@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Unit_Data_Wizard
   m_EditorClassIdentifier: 
   unitName: Wizy
-  mesh: {fileID: -8320991354728199863, guid: 49bfe047b57a7bd44a68733ceecf8b34, type: 3}
+  mesh: {fileID: 6449654466282237968, guid: c3ab6e7ef0ffd6644b4474c3baabc9f2, type: 3}
   category: 1
   maxLife: 35
   attack: 10

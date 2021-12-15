@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
 
     [Header("Vuforia")]
-    [SerializeField]
+    [SerializeField] private DefaultObserverEventHandler[] heroMarker;
 
     [Header("Interface")]
     [SerializeField] private UIManager UI;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     private int currentFloor = 0;
     private int virtualHumanInReserve = 0;
     private int enemyCount = 0;
+    private int totalEnemyCount = 0;
 
     private List<Hero> heroes       = new List<Hero>();
     private List<Hero> tempHeroes   = new List<Hero>();  // temporary list for when the user wants to add a hero marker outside of preparation phase (fight or setup)
@@ -86,8 +88,11 @@ public class GameManager : MonoBehaviour
                 }
         }
     }
-    private void _GameOver()
+    private void _GameOver(bool won)
     {
+        PlayerPrefs.SetInt("Won", won ? 1 : 0);
+        PlayerPrefs.SetInt("LastFloor", currentFloor);
+        PlayerPrefs.SetInt("Enemies", totalEnemyCount);
         SceneManager.LoadScene(2);
     }
 
@@ -199,6 +204,7 @@ public class GameManager : MonoBehaviour
     {
         heroes.Remove(hero);
         tempHeroes.Remove(hero);
+        ProximityLine.Disconnect(hero, heroes);
     }
 
     public static void RegisterEnemy(Enemy enemy)
@@ -258,6 +264,11 @@ public class GameManager : MonoBehaviour
             heroes.Add(hero);
         }
         tempHeroes.Clear();
+
+        foreach (var marker in heroMarker)
+        {
+            marker.StatusFilter = DefaultObserverEventHandler.TrackingStatusFilter.Tracked;
+        }
 
         gameState = GameState.Preparation;
         UI.UpdateUI();
@@ -329,6 +340,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        foreach (var marker in heroMarker)
+        {
+            marker.StatusFilter = DefaultObserverEventHandler.TrackingStatusFilter.Tracked_ExtendedTracked;
+        }
+
         gameState = GameState.Fight;
         UI.UpdateUI();
         return 0;
@@ -373,6 +389,7 @@ public class GameManager : MonoBehaviour
                 enemies.Remove(foundEnemy);
                 Destroy(foundEnemy.gameObject);
                 enemyCount++;
+                totalEnemyCount++;
             }
         }
 
@@ -455,7 +472,7 @@ public class GameManager : MonoBehaviour
         if (heroes.Count == 0)
         {
             // Game is over : all heroes on the terrain died => player loosed
-            _GameOver();
+            _GameOver(false);
             return;
         }
         else if (enemies.Count == 0)
@@ -463,7 +480,7 @@ public class GameManager : MonoBehaviour
             // All enemies died : if it was the last floor, game is over, player won | else start next floor
             if (maxFloor > 0 && currentFloor > maxFloor-2)
                 // last floor reached
-                _GameOver();
+                _GameOver(true);
             
             else
             {

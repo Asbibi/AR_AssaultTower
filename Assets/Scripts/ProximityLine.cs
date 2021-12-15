@@ -15,7 +15,14 @@ public class ProximityLine : MonoBehaviour
     {
         Vector3 Direction = (heroEnd.position - heroStart.position).normalized * 0.03f;
         LRenderer.SetPosition(0, heroStart.position + Direction);
-        LRenderer.SetPosition(1, heroEnd.position - Direction);       
+        LRenderer.SetPosition(1, heroEnd.position - Direction);
+
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.red, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1, 0.0f), new GradientAlphaKey(1, 1.0f) }
+        );
+        LRenderer.colorGradient = gradient;
     }
     private bool IsConnection(Hero hero1, Hero hero2)
     {
@@ -33,13 +40,13 @@ public class ProximityLine : MonoBehaviour
         {
             LRenderer.startWidth = 0.007f;
             LRenderer.endWidth = 0.007f;
-            LRenderer.material.SetColor("_Color", Color.green);
+            //LRenderer.material.SetColor("_Color", Color.green);
         }
         else
         {
             LRenderer.startWidth = 0.002f;
             LRenderer.endWidth = 0.002f;
-            LRenderer.material.SetColor("_Color", Color.yellow);
+            //LRenderer.material.SetColor("_Color", Color.yellow);
         }
     }
 

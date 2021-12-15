@@ -123,16 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &74021
+--- !u!21 &22281540
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'MonsterSpawnMaterial
+  m_Name: 'MonsterSpaw3Material
 
-    -29074'
+    -2638'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -145,7 +145,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6503c5348c3043af91cde4aa07c64241, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0648e6a071e44525871b8ba17af91110, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -231,35 +231,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36043017}
   m_CullTransparentMesh: 1
---- !u!21 &59562518
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'MonsterSpawn2Material
-
-    -37084'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 01fac38a343a4fff9bad92bc58999344, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &98605474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 3177513437276593810, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1798366992}
+      objectReference: {fileID: 1484152558}
     - target: {fileID: 3177513437276593811, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -408,6 +379,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122179}
   m_CullTransparentMesh: 1
+--- !u!21 &148549463
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'MonsterSpawn2Material
+
+    -2982'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 01fac38a343a4fff9bad92bc58999344, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &233961650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889119, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 676110264}
+      objectReference: {fileID: 1460905388}
     - target: {fileID: 7668395828384039018, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -499,6 +499,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668395828442820792, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+      propertyPath: AR_Camera
+      value: 
+      objectReference: {fileID: 2006973152}
     - target: {fileID: 7668395828582219548, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -761,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889119, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 817316274}
+      objectReference: {fileID: 2010033306}
     - target: {fileID: 7668395828384039018, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -782,6 +786,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668395828442820792, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+      propertyPath: AR_Camera
+      value: 
+      objectReference: {fileID: 2006973152}
     - target: {fileID: 7668395828582219548, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1100,35 +1108,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &289283553
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!114 &303070009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030001048358889117, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+  m_PrefabInstance: {fileID: 3030001048750489843}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'MonsterSpawn4Material
-
-    -37410'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1d02905f77aa494cb0e2a3df9fde419a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &404632062
 Mesh:
   m_ObjectHideFlags: 0
@@ -1457,6 +1447,75 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &428009341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030001048358889117, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+  m_PrefabInstance: {fileID: 859508855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!21 &437750484
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'KnightMaterial
+
+    -3006'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 83c2ea3d209740719e2eab49b4d4fb89, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &478716298
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'MonsterSpawn4Material
+
+    -2958'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1d02905f77aa494cb0e2a3df9fde419a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &494340638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1621,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &562973353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030001048358889117, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+  m_PrefabInstance: {fileID: 1298721006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623948448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,16 +1765,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623948448}
   m_CullTransparentMesh: 1
---- !u!21 &676110264
+--- !u!21 &655557981
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'KingMaterial
+  m_Name: 'MonsterSpawnMaterial
 
-    -86600'
+    20194'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -1717,7 +1787,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f1fbb1a2c0a0469fb80204c4115e7b91, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6503c5348c3043af91cde4aa07c64241, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2176,6 +2246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4e069252dc58f46a7e0958c985427f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroMarker:
+  - {fileID: 303070009}
+  - {fileID: 2056509855}
+  - {fileID: 428009341}
+  - {fileID: 562973353}
+  - {fileID: 1726696633}
   UI: {fileID: 959006414}
   proximityLinePrefab: {fileID: 6619664036426306640, guid: 3a2df6612c247a841ab964fc07e2d42b, type: 3}
   possibleEnemies:
@@ -2246,35 +2322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5fc79dadeb2ed48b73bf0427bb64d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &817316274
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'PriestMaterial
-
-    -59252'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 80be02ac8a62409cbca7c2831f5829a8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &817575511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,7 +2428,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889119, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1481738395}
+      objectReference: {fileID: 1373461983}
     - target: {fileID: 7668395828384039018, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2402,6 +2449,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668395828442820792, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+      propertyPath: AR_Camera
+      value: 
+      objectReference: {fileID: 2006973152}
     - target: {fileID: 7668395828582219548, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2556,6 +2607,170 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+--- !u!43 &951695344
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ImageTargetMesh-3002
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.035, y: 0, z: 0.035}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200020001000300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 4
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 128
+    _typelessdata: 295c0fbd00000000295c0fbd000000000000803f000000000000000000000000295c0fbd00000000295c0f3d000000000000803f00000000000000000000803f295c0f3d00000000295c0fbd000000000000803f000000000000803f00000000295c0f3d00000000295c0f3d000000000000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.035, y: 0, z: 0.035}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &959006409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,35 +3061,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1069174816
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'PeasantMaterial
-
-    -85598'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fb40489002314a99920c80da0538d9ee, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &1084414220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2885,7 +3071,7 @@ PrefabInstance:
     - target: {fileID: 3177513437276593810, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1970507385}
+      objectReference: {fileID: 22281540}
     - target: {fileID: 3177513437276593811, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -3384,7 +3570,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889119, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1069174816}
+      objectReference: {fileID: 1359895497}
     - target: {fileID: 7668395828384039018, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3405,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668395828442820792, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+      propertyPath: AR_Camera
+      value: 
+      objectReference: {fileID: 2006973152}
     - target: {fileID: 7668395828582219548, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3692,6 +3882,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309026788}
   m_CullTransparentMesh: 1
+--- !u!21 &1359895497
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'PeasantMaterial
+
+    -2662'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fb40489002314a99920c80da0538d9ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1365405495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,7 +3990,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365405495}
   m_CullTransparentMesh: 1
---- !u!21 &1481738395
+--- !u!21 &1373461983
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -3780,7 +3999,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 'WarriorMaterial
 
-    -60918'
+    -2342'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -3794,6 +4013,64 @@ Material:
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 231753f008894d46b80ed887e4bb1f06, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1460905388
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'KingMaterial
+
+    -1750'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f1fbb1a2c0a0469fb80204c4115e7b91, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1484152558
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'MonsterSpawn5Material
+
+    -1726'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 6fed18af8f2b41a89b1cf98f1a2fa397, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4498,6 +4775,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1726696633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030001048358889117, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+  m_PrefabInstance: {fileID: 233961650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1738575038
 Mesh:
   m_ObjectHideFlags: 0
@@ -4662,228 +4950,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1798366992
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'MonsterSpawn5Material
-
-    -37582'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6fed18af8f2b41a89b1cf98f1a2fa397, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
---- !u!43 &1817939546
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-5104
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 6
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 4
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.035, y: 0, z: 0.035}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200020001000300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 4
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 128
-    _typelessdata: 295c0fbd00000000295c0fbd000000000000803f000000000000000000000000295c0fbd00000000295c0f3d000000000000803f00000000000000000000803f295c0f3d00000000295c0fbd000000000000803f000000000000803f00000000295c0f3d00000000295c0f3d000000000000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.035, y: 0, z: 0.035}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
---- !u!21 &1861964821
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'KnightMaterial
-
-    -5114'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 83c2ea3d209740719e2eab49b4d4fb89, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &1926055195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4894,7 +4960,7 @@ PrefabInstance:
     - target: {fileID: 3177513437276593810, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 289283553}
+      objectReference: {fileID: 478716298}
     - target: {fileID: 3177513437276593811, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5032,35 +5098,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953334071}
   m_CullTransparentMesh: 1
---- !u!21 &1970507385
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'MonsterSpaw3Material
-
-    -37252'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0648e6a071e44525871b8ba17af91110, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1998838196
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,6 +5342,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2010033306
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'PriestMaterial
+
+    -2046'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 80be02ac8a62409cbca7c2831f5829a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &2056509855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030001048358889117, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+  m_PrefabInstance: {fileID: 249712583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2092337098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5315,7 +5392,7 @@ PrefabInstance:
     - target: {fileID: 3177513437276593810, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 59562518}
+      objectReference: {fileID: 148549463}
     - target: {fileID: 3177513437276593811, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5520,7 +5597,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889112, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1817939546}
+      objectReference: {fileID: 951695344}
     - target: {fileID: 3030001048358889114, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Name
       value: HeroTarget
@@ -5536,7 +5613,7 @@ PrefabInstance:
     - target: {fileID: 3030001048358889119, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1861964821}
+      objectReference: {fileID: 437750484}
     - target: {fileID: 7668395828384039018, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5557,6 +5634,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668395828442820792, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
+      propertyPath: AR_Camera
+      value: 
+      objectReference: {fileID: 2006973152}
     - target: {fileID: 7668395828582219548, guid: 0274d87efe2e0284981f8680a2b75dad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5725,7 +5806,7 @@ PrefabInstance:
     - target: {fileID: 3177513437276593810, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 74021}
+      objectReference: {fileID: 655557981}
     - target: {fileID: 3177513437276593811, guid: 082cdaa812342784da374ff5b669b58a, type: 3}
       propertyPath: m_Mesh
       value: 
