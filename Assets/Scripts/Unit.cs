@@ -5,20 +5,28 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class Unit : MonoBehaviour
 {
+    static float proximityCloseLimit = 0.085f;
+    static float proximityNearLimit = 0.15f;
+
     UnitData data = null;
     [SerializeField] SkinnedMeshRenderer mesh;
     protected Animator animator;
 
     float life;
+    bool alreadySetUp = false;
 
 
     public virtual void Setup(UnitData unitData)
     {
+        if (alreadySetUp)
+            return;
+
         data = unitData;
         life = unitData.maxLife;
         mesh.sharedMesh = unitData.mesh;
         animator = GetComponent<Animator>();
         animator.SetInteger("Category", (int)unitData.category);
+        alreadySetUp = true;
     }
 
     public void Active()
@@ -71,9 +79,9 @@ public abstract class Unit : MonoBehaviour
     public Proximity GetProximity(Unit other)
     {
         float dist = Vector3.Distance(transform.position, other.transform.position);
-        if (dist < 0.6)
+        if (dist < proximityCloseLimit)
             return Proximity.Close;
-        else if(dist < 1.2)
+        else if(dist < proximityNearLimit)
             return Proximity.Near;
         else
             return Proximity.Far;

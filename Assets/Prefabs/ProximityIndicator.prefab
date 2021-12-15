@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bf9d43afa8ddc4795e2a0edd4cc4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorMin: {r: 1, g: 0, b: 0, a: 1}
-  colorMax: {r: 0, g: 1, b: 0.1784203, a: 1}
+  colorMin: {r: 1, g: 0, b: 0.19916248, a: 1}
+  colorMax: {r: 0, g: 1, b: 0.46009302, a: 1}
   lineHoster: {fileID: 0}

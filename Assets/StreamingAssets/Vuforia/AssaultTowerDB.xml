@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Test" size="1.000000 1.000000" />
+    <ImageTarget name="MonsterSpawn5" size="0.070000 0.070000" />
+    <ImageTarget name="MonsterSpawn4" size="0.070000 0.070000" />
+    <ImageTarget name="MonsterSpaw3" size="0.070000 0.070000" />
+    <ImageTarget name="MonsterSpawn2" size="0.070000 0.070000" />
+    <ImageTarget name="King" size="0.070000 0.070000" />
+    <ImageTarget name="Peasant" size="0.070000 0.070000" />
+    <ImageTarget name="Warrior" size="0.070000 0.070000" />
+    <ImageTarget name="Knight" size="0.070000 0.070000" />
+    <ImageTarget name="Priest" size="0.070000 0.070000" />
+    <ImageTarget name="MonsterSpawn" size="0.070000 0.070000" />
   </Tracking>
 </QCARConfig>

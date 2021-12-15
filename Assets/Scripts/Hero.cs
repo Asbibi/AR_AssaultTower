@@ -14,12 +14,6 @@ public class Hero : Unit
     [SerializeField] UIHero UI;
 
 
-    public override void Setup(UnitData unitData)
-    {
-        base.Setup(unitData);
-        GameManager.RegisterHero(this);
-    }
-
 
 
     public void ComputeProximityScore(List<Hero> allHeroes)

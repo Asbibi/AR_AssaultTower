@@ -5,14 +5,14 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void OnFound()
     {
         GameManager.RegisterDoor(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    public void OnLost()
     {
-        
+        GameManager.UnRegisterDoor(this);
     }
 }

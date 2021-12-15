@@ -13,7 +13,7 @@ public class ProximityLine : MonoBehaviour
 
     private void Update()
     {
-        Vector3 Direction = (heroEnd.position - heroStart.position).normalized * 0.07f;
+        Vector3 Direction = (heroEnd.position - heroStart.position).normalized * 0.03f;
         LRenderer.SetPosition(0, heroStart.position + Direction);
         LRenderer.SetPosition(1, heroEnd.position - Direction);       
     }

@@ -157,6 +157,16 @@ public class GameManager : MonoBehaviour
         else
             doors.Add(door);
     }
+    public static void UnRegisterDoor(Door door)
+    {
+        if (instance != null)
+            instance._UnRegisterDoor(door);
+    }
+    private void _UnRegisterDoor(Door door)
+    {
+        doors.Remove(door);
+        tempDoors.Remove(door);
+    }
 
     public static void RegisterHero(Hero hero)
     {
@@ -172,6 +182,16 @@ public class GameManager : MonoBehaviour
             tempHeroes.Add(hero);
             hero.gameObject.SetActive(false);
         }
+    }
+    public static void UnRegisterHero(Hero hero)
+    {
+        if (instance != null)
+            instance._UnRegisterHero(hero);
+    }
+    private void _UnRegisterHero(Hero hero)
+    {
+        heroes.Remove(hero);
+        tempHeroes.Remove(hero);
     }
 
     public static void RegisterEnemy(Enemy enemy)
@@ -368,7 +388,7 @@ public class GameManager : MonoBehaviour
             // Is he in range ? if not, teleport to him
             if (!enemy.IsInRange(foundHero))
             {                
-                Vector3 direction = toTarget * 0.1f;
+                Vector3 direction = toTarget * 0.005f;
                 // Here the 0.1f is a relatively good step considering the Near/Close/far values but might need to be changed
 
                 enemy.Move();
