@@ -24,6 +24,7 @@ public abstract class Unit : MonoBehaviour
         data = unitData;
         life = unitData.maxLife;
         mesh.sharedMesh = unitData.mesh;
+        mesh.material.color = unitData.color;
         animator = GetComponent<Animator>();
         animator.SetInteger("Category", (int)unitData.category);
         alreadySetUp = true;

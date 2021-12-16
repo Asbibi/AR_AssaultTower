@@ -9,6 +9,7 @@ public class UnitData : ScriptableObject
     public string unitName;
     public Mesh mesh;
     public AnimationCategory category;
+    public Color color;
     [Header("Stats")]
     public int maxLife = 25;
     public int attack = 10;
