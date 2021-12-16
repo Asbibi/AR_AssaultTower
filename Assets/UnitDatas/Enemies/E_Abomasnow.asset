@@ -16,9 +16,9 @@ MonoBehaviour:
   mesh: {fileID: -7877396028586700447, guid: 85688452cf956554bbba8e043e1be5ef, type: 3}
   category: 0
   color: {r: 0.3018868, g: 0.089711644, b: 0.089711644, a: 1}
-  maxLife: 15
-  attack: 13
-  defense: 7
+  maxLife: 25
+  attack: 17
+  defense: 12
   range: 2
   angle: 0
   hitAllies: 0
