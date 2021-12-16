@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c961658f61cd4cba07aed1b4a0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wintext: {fileID: 0}
 --- !u!1 &1298882827
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,10 +752,10 @@ RectTransform:
   m_Father: {fileID: 1206802876}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552534793
 MonoBehaviour:
@@ -851,7 +852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 484581cc20afa714d87c42631efaca93, type: 3}
+  m_Texture: {fileID: 2800000, guid: bcd2ec76f88954a43a75d6be23e11697, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
